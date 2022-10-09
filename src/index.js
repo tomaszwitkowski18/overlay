@@ -10,11 +10,14 @@ import Overlay from './pages/Overlay';
 import Panel from './pages/Panel';
 
 const GlobalStyle = createGlobalStyle`
+  * {
+    box-sizing: border-box;
+  }
+
    body {
     margin: 0;
     padding: 0;
     font-family: 'Roboto';
-    background: #000;
   }
 `
 
@@ -23,7 +26,7 @@ root.render(
   <React.StrictMode>
     <GlobalStyle />
     <BrowserRouter>
-      <Routes basename={'/overlay'}>
+      <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/overlay" element={<Overlay />} />
         <Route path="/panel" element={<Panel />} />

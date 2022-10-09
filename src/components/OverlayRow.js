@@ -1,27 +1,11 @@
 import styled from 'styled-components'
 
-import Logo from '../images/dummy_logo.png'
-
 const RowMain = styled.div`
   display: flex;
   height: 51px;
   &:nth-child(2) {
     border-top: 1px solid #fff;
   }
-`
-
-const LogoWrapper = styled.div`
-  width: 51px; 
-  background: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`
-
-const ClubLogo = styled.img`
-  width: 33px;
-  height: 33px;
-  object-fit: contain;
 `
 
 const TeamColor = styled.div`
@@ -50,7 +34,7 @@ const ServeDot = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 15px;
+  width: 15px;
 `
 
 const SetsScore = styled.div`
@@ -78,16 +62,13 @@ const CurrentScore = styled.div`
 const OverlayRow = ({ logo, teamColor, teamShortname, serve, sets, currentScore }) => {
   return (
     <RowMain>
-      <LogoWrapper>
-        <ClubLogo src={Logo} />
-      </LogoWrapper>
       <TeamColor teamColor={teamColor} />
       <TeamNameServeWrapper>
         <TeamShortname>
           {teamShortname}
         </TeamShortname>
         <ServeDot>
-          {serve && '·'}
+          {serve ? '·' : null}
         </ServeDot>
       </TeamNameServeWrapper>
       <SetsScore>
