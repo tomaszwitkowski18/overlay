@@ -5,6 +5,11 @@ import PreviousSets from "../components/PreviousSets";
 
 import Logo from '../images/dummy_logo.png'
 
+const OverlayMain = styled.div`
+  width: 1920px;
+  height: 1080px;
+`
+
 const OverlayWrapper = styled.div`
   max-width: 288px;
   display: flex;
@@ -34,20 +39,22 @@ const ClubLogo = styled.img`
 
 const Overlay = () => {
   return (
-    <OverlayWrapper>
-      <OverlayColumn>
-        <LogoWrapper>
-          <ClubLogo src={Logo} />
-        </LogoWrapper>
-      </OverlayColumn>
-      <OverlayColumn>
-        <OverlayRow teamColor={'1aa9e1'} teamShortname={'sgsm'} serve={1} sets={2} currentScore={20} />
-        <OverlayRow teamColor={'ff0000'} teamShortname={'sgsm'} serve={0} sets={2} currentScore={20} />
-        <PreviousSetsWrapper>
-          <PreviousSets previousSets={['25:15', '25:17']} />
-        </PreviousSetsWrapper>
-      </OverlayColumn>
-    </OverlayWrapper>
+    <OverlayMain>
+      <OverlayWrapper>
+        <OverlayColumn>
+          <LogoWrapper>
+            <ClubLogo src={Logo} />
+          </LogoWrapper>
+        </OverlayColumn>
+        <OverlayColumn>
+          <OverlayRow teamColor={'1aa9e1'} teamShortname={'sgsm'} serve={1} sets={2} currentScore={20} />
+          <OverlayRow teamColor={'ff0000'} teamShortname={'sgsm'} serve={0} sets={2} currentScore={20} />
+          <PreviousSetsWrapper>
+            <PreviousSets previousSets={['25:15', '25:17']} />
+          </PreviousSetsWrapper>
+        </OverlayColumn>
+      </OverlayWrapper>
+    </OverlayMain>
   );
 }
 
