@@ -23,7 +23,7 @@ root.render(
   <React.StrictMode>
     <GlobalStyle />
     <BrowserRouter>
-      <Routes>
+      <Routes basename={'/overlay'}>
         <Route path="/" element={<Index />} />
         <Route path="/overlay" element={<Overlay />} />
         <Route path="/panel" element={<Panel />} />
