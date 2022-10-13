@@ -1,18 +1,19 @@
 import styled from "styled-components";
 
-import PreviousSets from "../components/PreviousSets";
+import PanelPreviousSets from "../components/PanelPreviousSets";
 import MatchTime from "../components/MatchTime";
+import ScoreButttons from "../components/ScoreButtons";
 
 const PanelMain = styled.div`
   padding: 20px 0;
-  background-color: #fff;
 `
 
 const Panel = () => {
   return (
     <PanelMain>
-      <PreviousSets previousSets={['25:15', '25:17']} />
+      <PanelPreviousSets />
       <MatchTime />
+      <ScoreButttons />
     </PanelMain>
   );
 }

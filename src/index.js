@@ -8,6 +8,7 @@ import './font/stylesheet.css'
 import Index from './pages/Index';
 import Overlay from './pages/Overlay';
 import Panel from './pages/Panel';
+import StartMatch from './pages/StartMatch';
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -30,6 +31,7 @@ root.render(
         <Route path="/" element={<Index />} />
         <Route path="/overlay" element={<Overlay />} />
         <Route path="/panel" element={<Panel />} />
+        <Route path="/start-match" element={<StartMatch />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

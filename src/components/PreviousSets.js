@@ -1,11 +1,5 @@
 import styled from 'styled-components'
 
-const PreviousSetsMainWrapper = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  margin-right: 50px;
-`
-
 const PreviousSetsMain = styled.div`
   background: #fff;
   display: flex;
