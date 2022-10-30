@@ -1,3 +1,5 @@
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import styled from 'styled-components'
 
 import OverlayRow from "../components/OverlayRow";
@@ -37,7 +39,28 @@ const ClubLogo = styled.img`
   object-fit: contain;
 `
 
+const matchData = {
+  team_first_name: null,
+  team_second_name: null,
+  team_first_score: null,
+  team_second_score: null,
+  team_first_sets: null,
+  team_second_sets: null,
+  match_start_time: null,
+  sets: null
+}
+
 const Overlay = () => {
+  const [currentMatchData, setCurrentMatchData] = useState(matchData);
+
+  useEffect(() => {
+    setInterval(() => {
+      axios.get('https://volley.828.li/api/v1/getOngoingMatchOverlay.php').then(request => {
+        setCurrentMatchData(request.data)
+      }).catch(err => console.error(err))
+    }, 3000)
+  }, [])
+
   return (
     <OverlayMain>
       <OverlayWrapper>
@@ -47,10 +70,20 @@ const Overlay = () => {
           </LogoWrapper>
         </OverlayColumn>
         <OverlayColumn>
-          <OverlayRow teamColor={'1aa9e1'} teamShortname={'sgsm'} serve={1} sets={2} currentScore={20} />
-          <OverlayRow teamColor={'ff0000'} teamShortname={'sgsm'} serve={0} sets={2} currentScore={20} />
+          <OverlayRow
+            teamColor={'1aa9e1'}
+            teamShortname={currentMatchData.team_first_name}
+            serve={1}
+            sets={currentMatchData.team_first_sets}
+            currentScore={currentMatchData.team_first_score} />
+          <OverlayRow
+            teamColor={'1aa9e1'}
+            teamShortname={currentMatchData.team_second_name}
+            serve={1}
+            sets={currentMatchData.team_second_sets}
+            currentScore={currentMatchData.team_second_score} />
           <PreviousSetsWrapper>
-            <PreviousSets previousSets={['25:15', '25:17']} />
+            <PreviousSets previousSets={currentMatchData.sets} />
           </PreviousSetsWrapper>
         </OverlayColumn>
       </OverlayWrapper>

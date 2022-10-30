@@ -26,18 +26,23 @@ const StartMatch = () => {
   const [selectsTeamSecondValue, setSelectsTeamSecondValue] = useState();
 
   useEffect(() => {
-    axios.get('http://localhost/api/v1/getTeams.php')
+    axios.get('https://volley.828.li/api/v1/getTeams.php')
       .then(request => {
         setTeamsList(request.data)
       })
   }, [])
 
-  const startMatch = e => {
+  const startMatch = async e => {
     e.preventDefault();
-    axios.post('http://localhost/api/v1/startMatch.php', {
-      teamFirst: selectsTeamFirstValue,
-      teamSecond: selectsTeamSecondValue
-    })
+    if (selectsTeamFirstValue !== selectsTeamSecondValue) {
+      await axios.post('https://volley.828.li/api/v1/startMatch.php', {
+        teamFirst: selectsTeamFirstValue,
+        teamSecond: selectsTeamSecondValue
+      }).catch(err => console.log(err))
+      window.location = '/panel'
+    } else {
+      alert('próbujesz zacząć mecz tej samej drużyny')
+    }
   }
 
   const handleChange = e => {

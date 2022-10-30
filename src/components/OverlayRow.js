@@ -24,6 +24,7 @@ const TeamNameServeWrapper = styled.div`
 const TeamShortname = styled.span`
   font-size: 24px;
   font-weight: 800;
+  line-height: 1;
   text-transform: uppercase;
   padding: 0 16px 0 11px;
 `
@@ -58,6 +59,8 @@ const CurrentScore = styled.div`
   align-items: center;
   background-color: #fff;
 `
+
+
 
 const OverlayRow = ({ logo, teamColor, teamShortname, serve, sets, currentScore }) => {
   return (

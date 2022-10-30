@@ -5,6 +5,7 @@ const Index = () => {
     <>
       <Link to="/overlay">Overlay</Link>
       <Link to="/panel">Panel</Link>
+      <Link to="/start-match">Zacznij mecz</Link>
     </>
   );
 }

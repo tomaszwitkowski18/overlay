@@ -14,15 +14,18 @@ const PreviousSetSingle = styled.div`
 `
 
 const PreviousSets = ({ previousSets }) => {
-  return (
-    <PreviousSetsMain>
-      {previousSets.map(set => (
-        <PreviousSetSingle>
-          {set}
-        </PreviousSetSingle>
-      ))}
-    </PreviousSetsMain>
-  );
+  if (previousSets) {
+    const setsData = previousSets.filter(x => x)
+    return (
+      <PreviousSetsMain>
+        {setsData.map(set => (
+          <PreviousSetSingle key={set} >
+            {set}
+          </PreviousSetSingle>
+        ))}
+      </PreviousSetsMain >
+    );
+  }
 }
 
 export default PreviousSets

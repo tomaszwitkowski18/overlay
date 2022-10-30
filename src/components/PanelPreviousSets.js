@@ -5,6 +5,9 @@ const PanelPreviousSetsMain = styled.span`
   font-weight: 800;
   display: block;
   padding: 0 20px 20px;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
 `
 
 const SinglePreviousSet = styled.span``
